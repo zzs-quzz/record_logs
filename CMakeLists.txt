@@ -130,7 +130,7 @@ add_library(${PROJECT_NAME}
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/record_logs_node.cpp)
-add_executable(ceshi src/ceshi.cpp)
+add_executable(${PROJECT_NAME}_ceshi src/ceshi.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -143,7 +143,7 @@ add_executable(ceshi src/ceshi.cpp)
 # add_dependencies(record_log ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(ceshi
+target_link_libraries(${PROJECT_NAME}_ceshi
   ${PROJECT_NAME}
 )
 
