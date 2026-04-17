@@ -19,7 +19,7 @@ catkin_make
 ```
 2. 运行测试程序
 ```
-./devel/lib/record_logs/ceshi
+./devel/lib/record_logs/record_logs_ceshi
 ```
 ## 3. 其他功能包使用
 - 修改CMakeLists.txt：注释add_executable和target_link_libraries
