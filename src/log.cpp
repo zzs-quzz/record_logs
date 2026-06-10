@@ -11,6 +11,7 @@
 static FILE *log_file = nullptr;
 static std::string current_date;
 static std::string log_dir = "/home/zzs/catkin_ws/logs";
+static std::string file_name;
 static std::mutex log_mutex;
 
 // 内部函数：检查日期并切换文件
@@ -29,7 +30,7 @@ static void check_date_and_rotate()
             fclose(log_file);
             log_file = nullptr;
         }
-        std::string filename = log_dir + "/record_log" + new_date + ".log";
+        std::string filename = log_dir + "/" + file_name + new_date + ".log";
         log_file = fopen(filename.c_str(), "a");
         if (log_file)
         {
@@ -43,10 +44,11 @@ static void check_date_and_rotate()
     }
 }
 
-void init_log(const char *dir)
+void init_log(const char *dir, const char *name)
 {
     std::lock_guard<std::mutex> lock(log_mutex);
     log_dir = dir;
+    file_name = name;
     printf("日志地址:%s\n", log_dir.c_str());
 
     // 创建目录（如果不存在）

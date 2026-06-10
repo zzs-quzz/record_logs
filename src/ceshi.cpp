@@ -3,8 +3,9 @@
 
 int main(int argc, char **argv)
 {
-    std::string log_dir = "/home/zzs/catkin_ws/logs"; // 需修改
-    init_log(log_dir.c_str());
+    std::string log_dir = "/home/zzs/catkin_ws/logs";
+    std::string file_name = "ceshi";
+    init_log(log_dir.c_str(), file_name.c_str());
     for (size_t i = 0; i < 5; i++)
     {
         log_printf("i=%d", i);
